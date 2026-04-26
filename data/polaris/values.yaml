@@ -1,0 +1,7 @@
+﻿# Apache Polaris — Iceberg REST catalog with RBAC + multi-engine support
+image: { repository: apache/polaris, tag: latest }
+polaris:
+  realm: farmpulse
+  storage:
+    s3: { endpoint: http://minio.farmpulse.svc:9000, region: us-east-1, bucket: farmpulse-iceberg-warehouse }
+ingress: { enabled: true, hosts: [{ host: polaris.farmpulse.internal }] }

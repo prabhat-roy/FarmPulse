@@ -1,0 +1,2 @@
+﻿# OpenFarm — open crop knowledge base (free + open data)
+openfarm: { ingest: { enabled: true, schedule: weekly }, postgres: { enabled: true } }

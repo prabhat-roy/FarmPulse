@@ -1,0 +1,6 @@
+﻿# Sourcegraph (OSS) — universal code search across FarmPulse
+image: { repository: sourcegraph/server, tag: 5.5.0 }
+sourcegraph:
+  externalURL: https://sourcegraph.farmpulse.internal
+  repositoriesToAdd: [github.com/prabhat-roy/FarmPulse]
+ingress: { enabled: true, hosts: [{ host: sourcegraph.farmpulse.internal }] }

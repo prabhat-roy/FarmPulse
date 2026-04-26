@@ -1,0 +1,3 @@
+﻿# PlantNet — open species identification (model + API)
+image: { repository: plantnet/identify, tag: latest }
+plantnet: { models: [global, weeds, useful], languages: [en, hi, sw, es, fr] }

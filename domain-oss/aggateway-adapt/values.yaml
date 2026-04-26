@@ -1,0 +1,2 @@
+﻿# AgGateway ADAPT — equipment + agronomic data interop (used by Deere, CNH, AGCO)
+adapt: { plugins: [johndeere, cnh, agco, claas], output-formats: [iso11783, sft] }

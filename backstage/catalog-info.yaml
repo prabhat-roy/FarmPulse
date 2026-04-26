@@ -1,7 +1,9 @@
-apiVersion: backstage.io/v1alpha1
+﻿apiVersion: backstage.io/v1alpha1
 kind: System
-metadata:
-  name: farmpulse
-  description: Smart Grid & Energy Management Platform
-spec:
-  owner: farmpulse-platform
+metadata: { name: farmpulse, description: FarmPulse enterprise platform }
+spec: { owner: platform-team, domain: farmpulse }
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata: { name: farmpulse }
+spec: { owner: platform-team }
