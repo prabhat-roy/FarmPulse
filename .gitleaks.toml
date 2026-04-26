@@ -1,0 +1,25 @@
+title = "FarmPulse gitleaks config"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "ttn-api-key"
+description = "The Things Network API key"
+regex = '''NNSXS\.[A-Z0-9]{52}\.[A-Z0-9]{52}'''
+tags = ["lorawan", "ttn"]
+
+[[rules]]
+id = "sentinel-hub-key"
+description = "Sentinel Hub OAuth credentials"
+regex = '''sh-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}'''
+tags = ["satellite"]
+
+[allowlist]
+description = "Skip allowlist"
+paths = [
+  '''(.*?)(jpg|jpeg|png|gif|tif|tiff|webp|heic|geojson|shp|kml)$''',
+  '''(.*?)\.lock$''',
+  '''vendor/''',
+  '''node_modules/''',
+]

@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "namespace": "com.farmpulse.events.livestock",
+  "name": "HealthEventRecorded",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "occurred_at", "type": {"type": "long", "logicalType": "timestamp-millis"}},
+    {"name": "animal_id", "type": "string"},
+    {"name": "herd_id", "type": "string"},
+    {"name": "event_type", "type": "string", "doc": "vaccination|illness|treatment|breeding"},
+    {"name": "details", "type": ["null", "string"], "default": null}
+  ]
+}

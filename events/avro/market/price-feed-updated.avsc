@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "namespace": "com.farmpulse.events.market",
+  "name": "PriceFeedUpdated",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "occurred_at", "type": {"type": "long", "logicalType": "timestamp-millis"}},
+    {"name": "commodity", "type": "string"},
+    {"name": "mandi_id", "type": "string"},
+    {"name": "min_price", "type": "double"},
+    {"name": "max_price", "type": "double"},
+    {"name": "modal_price", "type": "double"},
+    {"name": "currency", "type": "string"}
+  ]
+}

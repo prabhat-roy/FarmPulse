@@ -1,0 +1,19 @@
+detectors:
+  - aws
+  - gcp
+  - azure
+  - github
+  - gitlab
+  - mqtt
+  - keycloak
+  - hashicorp_vault
+exclude_paths:
+  - vendor/
+  - node_modules/
+  - target/
+  - dist/
+  - "**/*.png"
+  - "**/*.jpg"
+  - "**/*.tif"
+  - "**/*.tiff"
+  - "**/*.geojson"

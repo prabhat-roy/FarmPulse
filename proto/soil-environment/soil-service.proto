@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package farmpulse.soil_environment.v1;
+
+import "common/types.proto";
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.farmpulse.soil_environment.v1";
+option java_multiple_files = true;
+
+// soil-service: Soil profile + lab test records.
+service SoilService {
+  rpc Health(HealthRequest) returns (HealthResponse);
+}
+
+message HealthRequest {}
+message HealthResponse {
+  string status = 1;
+  string version = 2;
+  google.protobuf.Timestamp checked_at = 3;
+}

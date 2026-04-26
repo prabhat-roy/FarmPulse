@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package farmpulse.irrigation.v1;
+
+import "common/types.proto";
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.farmpulse.irrigation.v1";
+option java_multiple_files = true;
+
+// irrigation-service: Irrigation zone scheduler (RL agent).
+service IrrigationService {
+  rpc Health(HealthRequest) returns (HealthResponse);
+  rpc ScheduleZone(ScheduleZoneRequest) returns (ScheduleZoneResponse);
+}
+
+message HealthRequest {}
+message HealthResponse {
+  string status = 1;
+  string version = 2;
+  google.protobuf.Timestamp checked_at = 3;
+}
+
+message ScheduleZoneRequest {
+  string zone_id = 1;
+  google.protobuf.Timestamp start_at = 2;
+  int32 duration_minutes = 3;
+}
+
+message ScheduleZoneResponse {
+  string schedule_id = 1;
+}

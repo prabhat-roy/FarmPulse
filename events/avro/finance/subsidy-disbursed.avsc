@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "namespace": "com.farmpulse.events.finance",
+  "name": "SubsidyDisbursed",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "occurred_at", "type": {"type": "long", "logicalType": "timestamp-millis"}},
+    {"name": "subsidy_id", "type": "string"},
+    {"name": "farmer_id", "type": "string"},
+    {"name": "scheme", "type": "string"},
+    {"name": "amount_minor", "type": "long"},
+    {"name": "currency", "type": "string"},
+    {"name": "rail", "type": "string", "doc": "DBT|wallet|cooperative"}
+  ]
+}

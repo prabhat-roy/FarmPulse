@@ -1,0 +1,13 @@
+# Per-developer overrides — committed as a template; copy + customise locally.
+# Uncomment as needed.
+
+version: "3.9"
+
+services:
+  # postgres:
+  #   ports: ["55432:5432"]
+  pass:
+    image: alpine:3.20
+    container_name: farmpulse-noop
+    command: ["sh", "-c", "echo override loaded; sleep infinity"]
+    profiles: ["noop"]

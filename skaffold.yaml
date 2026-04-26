@@ -1,0 +1,36 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata:
+  name: farmpulse
+build:
+  artifacts:
+    - image: farmpulse/api-gateway
+      context: src/platform/api-gateway
+    - image: farmpulse/farmer-bff
+      context: src/platform/farmer-bff
+    - image: farmpulse/agronomy-bff
+      context: src/platform/agronomy-bff
+    - image: farmpulse/market-bff
+      context: src/platform/market-bff
+    - image: farmpulse/sensor-aggregator
+      context: src/soil-environment/sensor-aggregator
+    - image: farmpulse/irrigation-service
+      context: src/irrigation/irrigation-service
+    - image: farmpulse/yield-prediction
+      context: src/analytics/yield-prediction
+    - image: farmpulse/satellite-analytics
+      context: src/analytics/satellite-analytics
+deploy:
+  helm:
+    releases:
+      - name: api-gateway
+        chartPath: helm/charts/api-gateway
+        valuesFiles: ["helm/charts/api-gateway/values.yaml"]
+profiles:
+  - name: edge
+    deploy:
+      helm:
+        releases:
+          - name: edge-agent
+            chartPath: helm/charts/edge-agent
+            valuesFiles: ["edge/values-edge.yaml"]

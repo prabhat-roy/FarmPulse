@@ -3,8 +3,8 @@
 # has its own Makefile; this file fans out to them.
 
 .PHONY: help bootstrap proto build test lint fmt clean \
-        compose-up compose-down deploy-local helm-lint \
-        scan-images sbom k8s-validate
+        compose-up compose-down deploy-local deploy-edge helm-lint \
+        scan-images sbom k8s-validate edge-build firmware-build
 
 help:
 	@echo "FarmPulse — common targets"
@@ -12,12 +12,15 @@ help:
 	@echo "  bootstrap      Install local dev tooling (buf, golangci-lint, yamllint, hadolint)"
 	@echo "  proto          Regenerate gRPC bindings from proto/"
 	@echo "  build          Build all service container images"
+	@echo "  edge-build     Build ARM64 images for K3s edge clusters"
+	@echo "  firmware-build Build MicroPython firmware for ESP32 sensor nodes"
 	@echo "  test           Run unit + integration tests across all services"
-	@echo "  lint           Lint all source (Go, Java, Kotlin, Python, Node, TS)"
+	@echo "  lint           Lint all source (Go, Java, Python, Node, TS, Rust)"
 	@echo "  fmt            Format all source"
 	@echo "  compose-up     Start full local stack (docker compose up)"
 	@echo "  compose-down   Tear down local stack"
 	@echo "  deploy-local   Deploy to local kind/minikube via Helm"
+	@echo "  deploy-edge    Deploy edge stack to K3s"
 	@echo "  helm-lint      helm lint on every chart in helm/charts/"
 	@echo "  k8s-validate   kubeconform on manifests/"
 	@echo "  scan-images    Trivy scan on every built image"
@@ -32,6 +35,12 @@ proto:
 
 build:
 	@scripts/build-all.sh
+
+edge-build:
+	@scripts/build-edge.sh
+
+firmware-build:
+	@scripts/build-firmware.sh
 
 test:
 	@scripts/run-tests.sh
@@ -50,6 +59,9 @@ compose-down:
 
 deploy-local:
 	@scripts/deploy-local.sh
+
+deploy-edge:
+	@scripts/deploy-edge.sh
 
 helm-lint:
 	@find helm/charts -name Chart.yaml -execdir helm lint . \;

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package farmpulse.irrigation.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.farmpulse.irrigation.v1";
+option java_multiple_files = true;
+
+// pump-controller: Pump controller (edge-deployed, ARM64).
+service PumpControllerService {
+  rpc Health(HealthRequest) returns (HealthResponse);
+  rpc Toggle(ToggleRequest) returns (ToggleResponse);
+}
+
+message HealthRequest {}
+message HealthResponse {
+  string status = 1;
+  string version = 2;
+  google.protobuf.Timestamp checked_at = 3;
+}
+
+message ToggleRequest {
+  string pump_id = 1;
+  bool on = 2;
+}
+
+message ToggleResponse {
+  bool acknowledged = 1;
+}

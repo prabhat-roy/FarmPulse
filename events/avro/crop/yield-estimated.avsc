@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "namespace": "com.farmpulse.events.crop",
+  "name": "YieldEstimated",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "occurred_at", "type": {"type": "long", "logicalType": "timestamp-millis"}},
+    {"name": "field_id", "type": "string"},
+    {"name": "crop_id", "type": "string"},
+    {"name": "estimated_kg_per_ha", "type": "double"},
+    {"name": "confidence", "type": "double"},
+    {"name": "model_version", "type": "string"}
+  ]
+}

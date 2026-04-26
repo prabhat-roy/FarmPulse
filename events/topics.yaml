@@ -1,0 +1,106 @@
+# FarmPulse — canonical event topic registry.
+# Format: {domain}.{entity}.{event}
+
+kafka:
+  irrigation:
+    - name: irrigation.zone.scheduled
+      schema: avro/irrigation/zone-scheduled.avsc
+      retention: 14d
+      partitions: 12
+    - name: irrigation.zone.completed
+      schema: avro/irrigation/zone-completed.avsc
+      retention: 14d
+      partitions: 12
+    - name: irrigation.pump.toggled
+      schema: avro/irrigation/pump-toggled.avsc
+      retention: 7d
+      partitions: 6
+
+  crop:
+    - name: crop.growth-stage.transitioned
+      schema: avro/crop/growth-stage-transitioned.avsc
+      retention: 90d
+      partitions: 6
+    - name: crop.yield.estimated
+      schema: avro/crop/yield-estimated.avsc
+      retention: 365d
+      partitions: 6
+
+  livestock:
+    - name: livestock.health-event.recorded
+      schema: avro/livestock/health-event-recorded.avsc
+      retention: 365d
+      partitions: 6
+    - name: livestock.location.updated
+      schema: avro/livestock/location-updated.avsc
+      retention: 7d
+      partitions: 12
+
+  harvest:
+    - name: harvest.batch.completed
+      schema: avro/harvest/batch-completed.avsc
+      retention: 730d
+      partitions: 6
+
+  market:
+    - name: market.price-feed.updated
+      schema: avro/market/price-feed-updated.avsc
+      retention: 30d
+      partitions: 6
+
+  pest-disease:
+    - name: pest-disease.alert.raised
+      schema: avro/pest-disease/alert-raised.avsc
+      retention: 90d
+      partitions: 6
+
+  drones:
+    - name: drones.flight.completed
+      schema: avro/drones/flight-completed.avsc
+      retention: 30d
+      partitions: 6
+    - name: drones.ndvi.computed
+      schema: avro/drones/ndvi-computed.avsc
+      retention: 365d
+      partitions: 6
+
+  traceability:
+    - name: traceability.event.captured
+      schema: avro/traceability/event-captured.avsc
+      retention: 3650d
+      partitions: 6
+
+  finance:
+    - name: finance.claim.filed
+      schema: avro/finance/claim-filed.avsc
+      retention: 3650d
+      partitions: 6
+    - name: finance.subsidy.disbursed
+      schema: avro/finance/subsidy-disbursed.avsc
+      retention: 3650d
+      partitions: 6
+
+mqtt:
+  base: "farmpulse/{tenant}/{farm}/{field}/sensor/{type}/{device_id}"
+  qos: 1
+  retain: false
+  topics:
+    - pattern: "farmpulse/+/+/+/sensor/soil-moisture/+"
+      schema: mqtt/sensor-reading.json
+    - pattern: "farmpulse/+/+/+/sensor/soil-temp/+"
+      schema: mqtt/sensor-reading.json
+    - pattern: "farmpulse/+/+/+/sensor/weather/+"
+      schema: mqtt/weather-reading.json
+    - pattern: "farmpulse/+/+/+/actuator/pump/+/state"
+      schema: mqtt/pump-state.json
+
+nats:
+  edge_to_cloud:
+    - subject: edge.{cluster}.events.>
+      stream: EDGE_EVENTS
+      retention: limits
+      max_age_minutes: 4320
+  cloud_to_edge:
+    - subject: cloud.commands.{cluster}.>
+      stream: CLOUD_COMMANDS
+      max_age_minutes: 1440

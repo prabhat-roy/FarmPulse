@@ -25,6 +25,11 @@ secrets/
 .secrets/
 
 # ============================================================
+# Service registry (locally generated)
+# ============================================================
+.services.json
+
+# ============================================================
 # Go
 # ============================================================
 bin/
@@ -104,16 +109,6 @@ Cargo.lock
 **/*.rs.bk
 
 # ============================================================
-# Scala / sbt
-# ============================================================
-project/project/
-project/target/
-target/
-.bloop/
-.metals/
-metals.sbt
-
-# ============================================================
 # Containers / IaC / K8s
 # ============================================================
 .terraform/
@@ -144,6 +139,15 @@ postgres-data/
 mongo-data/
 redis-data/
 kafka-data/
+mqtt-data/
+influxdb-data/
+timescale-data/
+
+# ============================================================
+# Edge / firmware build artefacts
+# ============================================================
+iiot/sensor-firmware/build/
+iiot/sensor-firmware/.pio/
 
 # Claude-specific local files (not pushed)
 CLAUDE.md

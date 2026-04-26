@@ -1,0 +1,36 @@
+# NATS JetStream subjects for cloud<->edge replication.
+# All edge clusters publish under edge.{cluster}.> and subscribe to cloud.commands.{cluster}.>
+# Designed to tolerate long offline periods on the edge — JetStream durable consumers replay on reconnect.
+
+streams:
+  EDGE_EVENTS:
+    subjects: ["edge.>"]
+    retention: limits
+    max_age: 72h
+    storage: file
+    replicas: 3
+    description: All telemetry, alerts, and CRDT deltas pushed up from edge clusters
+
+  CLOUD_COMMANDS:
+    subjects: ["cloud.commands.>"]
+    retention: workqueue
+    max_age: 24h
+    storage: file
+    replicas: 3
+    description: Commands sent from cloud to specific edge clusters (irrigation schedules, OTA, etc.)
+
+  ADVISORY:
+    subjects: ["advisory.>"]
+    retention: limits
+    max_age: 168h
+    storage: file
+    replicas: 3
+    description: Multilingual advisory messages targeted to farmers; cached at edge for offline delivery
+
+consumers:
+  edge-cluster:
+    stream: CLOUD_COMMANDS
+    durable: edge-cluster-{cluster_id}
+    deliver_policy: all
+    ack_policy: explicit
+    max_deliver: 10

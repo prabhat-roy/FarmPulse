@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "namespace": "com.farmpulse.events.drones",
+  "name": "NdviComputed",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "occurred_at", "type": {"type": "long", "logicalType": "timestamp-millis"}},
+    {"name": "field_id", "type": "string"},
+    {"name": "mean_ndvi", "type": "double"},
+    {"name": "stddev_ndvi", "type": "double"},
+    {"name": "geotiff_uri", "type": "string"}
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "namespace": "com.farmpulse.events.traceability",
+  "name": "EventCaptured",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "occurred_at", "type": {"type": "long", "logicalType": "timestamp-millis"}},
+    {"name": "batch_id", "type": "string"},
+    {"name": "step", "type": "string", "doc": "sown|harvested|graded|stored|shipped|sold"},
+    {"name": "actor_id", "type": "string"},
+    {"name": "location", "type": "string"},
+    {"name": "blockchain_anchor_tx", "type": ["null", "string"], "default": null}
+  ]
+}

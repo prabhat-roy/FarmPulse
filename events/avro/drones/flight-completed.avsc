@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "namespace": "com.farmpulse.events.drones",
+  "name": "FlightCompleted",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "occurred_at", "type": {"type": "long", "logicalType": "timestamp-millis"}},
+    {"name": "drone_id", "type": "string"},
+    {"name": "field_id", "type": "string"},
+    {"name": "duration_seconds", "type": "int"},
+    {"name": "imagery_uri", "type": "string"}
+  ]
+}

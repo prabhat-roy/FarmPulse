@@ -1,0 +1,9 @@
+syntax = "proto3";
+package farmpulse.harvest.v1;
+import "google/protobuf/timestamp.proto";
+option java_package = "com.farmpulse.harvest.v1";
+option java_multiple_files = true;
+// harvest-service: Harvest event recording.
+service HarvestService { rpc Health(HealthRequest) returns (HealthResponse); }
+message HealthRequest {}
+message HealthResponse { string status = 1; string version = 2; google.protobuf.Timestamp checked_at = 3; }

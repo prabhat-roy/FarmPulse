@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SensorReading",
+  "type": "object",
+  "required": ["sensor_id", "type", "value", "unit", "ts"],
+  "properties": {
+    "sensor_id": {"type": "string"},
+    "type": {"type": "string", "enum": ["soil-moisture", "soil-temp", "humidity", "ph", "ec", "rainfall", "leaf-wetness"]},
+    "value": {"type": "number"},
+    "unit": {"type": "string"},
+    "ts": {"type": "string", "format": "date-time"},
+    "battery_v": {"type": "number"},
+    "rssi": {"type": "integer"},
+    "transport": {"type": "string", "enum": ["lorawan", "nb-iot", "wifi", "bluetooth"]}
+  }
+}

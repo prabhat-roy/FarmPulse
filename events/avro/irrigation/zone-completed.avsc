@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "namespace": "com.farmpulse.events.irrigation",
+  "name": "ZoneCompleted",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "occurred_at", "type": {"type": "long", "logicalType": "timestamp-millis"}},
+    {"name": "zone_id", "type": "string"},
+    {"name": "delivered_litres", "type": "double"},
+    {"name": "duration_minutes", "type": "int"},
+    {"name": "status", "type": "string"}
+  ]
+}

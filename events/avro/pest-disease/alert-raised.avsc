@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "namespace": "com.farmpulse.events.pest_disease",
+  "name": "AlertRaised",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "occurred_at", "type": {"type": "long", "logicalType": "timestamp-millis"}},
+    {"name": "field_id", "type": "string"},
+    {"name": "kind", "type": "string", "doc": "pest|disease"},
+    {"name": "species", "type": "string"},
+    {"name": "severity", "type": "string"},
+    {"name": "evidence_image_uri", "type": ["null", "string"], "default": null},
+    {"name": "edge_inferred", "type": "boolean", "default": false}
+  ]
+}

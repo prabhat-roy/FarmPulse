@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "namespace": "com.farmpulse.events.livestock",
+  "name": "LocationUpdated",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "occurred_at", "type": {"type": "long", "logicalType": "timestamp-millis"}},
+    {"name": "animal_id", "type": "string"},
+    {"name": "lat", "type": "double"},
+    {"name": "lng", "type": "double"},
+    {"name": "speed_mps", "type": "double"},
+    {"name": "transport", "type": "string", "doc": "nb-iot|lorawan|gps"}
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "namespace": "com.farmpulse.events.irrigation",
+  "name": "PumpToggled",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "occurred_at", "type": {"type": "long", "logicalType": "timestamp-millis"}},
+    {"name": "pump_id", "type": "string"},
+    {"name": "on", "type": "boolean"},
+    {"name": "actor", "type": "string"}
+  ]
+}

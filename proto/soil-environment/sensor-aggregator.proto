@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package farmpulse.soil_environment.v1;
+
+import "common/sensor.proto";
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.farmpulse.soil_environment.v1";
+option java_multiple_files = true;
+
+// sensor-aggregator: Sensor telemetry aggregator (MQTT/LoRaWAN to Kafka).
+service SensorAggregatorService {
+  rpc Health(HealthRequest) returns (HealthResponse);
+  rpc Ingest(stream farmpulse.common.v1.SensorReading) returns (IngestAck);
+}
+
+message HealthRequest {}
+message HealthResponse {
+  string status = 1;
+  string version = 2;
+  google.protobuf.Timestamp checked_at = 3;
+}
+
+message IngestAck {
+  int64 received = 1;
+  int64 stored = 2;
+}

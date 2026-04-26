@@ -1,0 +1,102 @@
+syntax = "proto3";
+
+package farmpulse.common.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.farmpulse.common.v1";
+option java_multiple_files = true;
+
+// FarmerId — tokenised reference to a farmer profile.
+message FarmerId {
+  string token = 1;
+}
+
+// FarmId — opaque farm identifier.
+message FarmId {
+  string id = 1;
+}
+
+// FieldId — opaque field identifier.
+message FieldId {
+  string id = 1;
+}
+
+// PlotId — opaque plot identifier (within a field).
+message PlotId {
+  string id = 1;
+}
+
+// Address — postal address.
+message Address {
+  string line1 = 1;
+  string line2 = 2;
+  string city = 3;
+  string state = 4;
+  string country_code = 5;  // ISO 3166-1 alpha-2
+  string postal_code = 6;
+  GeoPoint geo = 7;
+}
+
+// GeoPoint — WGS84 lat/long.
+message GeoPoint {
+  double lat = 1;
+  double lng = 2;
+  double altitude_m = 3;
+}
+
+// GeoPolygon — closed ring of WGS84 points (field boundary).
+message GeoPolygon {
+  repeated GeoPoint vertices = 1;
+}
+
+// GeoFeature — GeoJSON-style feature with properties.
+message GeoFeature {
+  string id = 1;
+  GeoPolygon polygon = 2;
+  map<string, string> properties = 3;
+}
+
+// Money — fixed-point monetary amount in minor units.
+message Money {
+  string currency_code = 1;  // ISO 4217
+  int64 minor_units = 2;
+}
+
+// Quantity — generic measured quantity (kg, ha, mm, %, etc.)
+message Quantity {
+  double value = 1;
+  string unit = 2;
+}
+
+// Pagination — request side.
+message PageRequest {
+  int32 size = 1;
+  string page_token = 2;
+}
+
+// Pagination — response side.
+message PageResponse {
+  string next_page_token = 1;
+  int64 total_size = 2;
+}
+
+// AuditMetadata — captured on every privileged write.
+message AuditMetadata {
+  string actor_id = 1;
+  string actor_role = 2;
+  string ip_address = 3;
+  string user_agent = 4;
+  google.protobuf.Timestamp event_time = 5;
+  string device_id = 6;          // for edge-originated writes
+  bool offline_originated = 7;   // true if recorded offline and synced later
+}
+
+// SyncContext — set on every farmer-app originated write so the cloud
+// can resolve conflicts during reconnection.
+message SyncContext {
+  string device_id = 1;
+  string crdt_node_id = 2;
+  google.protobuf.Timestamp client_event_time = 3;
+  int64 lamport = 4;
+}

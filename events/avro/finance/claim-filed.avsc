@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "namespace": "com.farmpulse.events.finance",
+  "name": "ClaimFiled",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "occurred_at", "type": {"type": "long", "logicalType": "timestamp-millis"}},
+    {"name": "claim_id", "type": "string"},
+    {"name": "policy_id", "type": "string"},
+    {"name": "farmer_id", "type": "string"},
+    {"name": "incident", "type": "string"},
+    {"name": "estimated_loss_minor", "type": "long"},
+    {"name": "currency", "type": "string"}
+  ]
+}

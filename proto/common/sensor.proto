@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package farmpulse.common.v1;
+
+import "google/protobuf/timestamp.proto";
+import "common/types.proto";
+
+option java_package = "com.farmpulse.common.v1";
+option java_multiple_files = true;
+
+// SensorReading — generic NGSI-LD-aligned observation.
+message SensorReading {
+  string sensor_id = 1;
+  string sensor_type = 2;       // soil-moisture, temp, humidity, ph, ec, etc.
+  google.protobuf.Timestamp observed_at = 3;
+  Quantity value = 4;
+  GeoPoint location = 5;
+  string field_id = 6;
+  string transport = 7;         // lorawan|nb-iot|mqtt|isobus
+}
+
+// FieldObservation — aggregated/derived observation tied to a field.
+message FieldObservation {
+  string field_id = 1;
+  google.protobuf.Timestamp window_start = 2;
+  google.protobuf.Timestamp window_end = 3;
+  double avg_soil_moisture_pct = 4;
+  double avg_temp_c = 5;
+  double avg_humidity_pct = 6;
+  double ndvi = 7;
+  double evi = 8;
+  double savi = 9;
+}
