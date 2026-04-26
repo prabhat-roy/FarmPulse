@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spray-recommendation
+  namespace: farmpulse
+  labels: { app.kubernetes.io/name: spray-recommendation, farmpulse.io/domain: pest-disease }
+data:
+  LOG_LEVEL: info
+  PORT: "50102"

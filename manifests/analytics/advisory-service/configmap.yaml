@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: advisory-service
+  namespace: farmpulse
+  labels: { app.kubernetes.io/name: advisory-service, farmpulse.io/domain: analytics }
+data:
+  LOG_LEVEL: info
+  PORT: "50281"

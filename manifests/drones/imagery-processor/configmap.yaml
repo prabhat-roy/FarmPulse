@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: imagery-processor
+  namespace: farmpulse
+  labels: { app.kubernetes.io/name: imagery-processor, farmpulse.io/domain: drones }
+data:
+  LOG_LEVEL: info
+  PORT: "50122"

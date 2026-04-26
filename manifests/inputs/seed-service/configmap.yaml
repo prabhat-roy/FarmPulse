@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: seed-service
+  namespace: farmpulse
+  labels: { app.kubernetes.io/name: seed-service, farmpulse.io/domain: inputs }
+data:
+  LOG_LEVEL: info
+  PORT: "50180"

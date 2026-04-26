@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microclimate
+  namespace: farmpulse
+  labels:
+    app.kubernetes.io/name: microclimate
+    app.kubernetes.io/part-of: farmpulse
+    farmpulse.io/domain: soil-environment
+spec:
+  replicas: 2
+  selector: { matchLabels: { app.kubernetes.io/name: microclimate } }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: microclimate, farmpulse.io/domain: soil-environment }
+    spec:
+      serviceAccountName: microclimate
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, fsGroup: 1000 }
+      containers:
+        - name: microclimate
+          image: harbor.farmpulse.internal/farmpulse/microclimate:latest
+          ports: [{ containerPort: 50062, name: http }]
+          envFrom: [{ configMapRef: { name: microclimate } }]
+          livenessProbe:  { httpGet: { path: /healthz, port: 50062 }, initialDelaySeconds: 15 }
+          readinessProbe: { httpGet: { path: /healthz, port: 50062 }, initialDelaySeconds: 5 }
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits:   { cpu: 1000m, memory: 512Mi }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: breeding-service
+  namespace: farmpulse
+  labels:
+    app.kubernetes.io/name: breeding-service
+    app.kubernetes.io/part-of: farmpulse
+    farmpulse.io/domain: livestock
+spec:
+  replicas: 2
+  selector: { matchLabels: { app.kubernetes.io/name: breeding-service } }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: breeding-service, farmpulse.io/domain: livestock }
+    spec:
+      serviceAccountName: breeding-service
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, fsGroup: 1000 }
+      containers:
+        - name: breeding-service
+          image: harbor.farmpulse.internal/farmpulse/breeding-service:latest
+          ports: [{ containerPort: 50141, name: http }]
+          envFrom: [{ configMapRef: { name: breeding-service } }]
+          livenessProbe:  { httpGet: { path: /healthz, port: 50141 }, initialDelaySeconds: 15 }
+          readinessProbe: { httpGet: { path: /healthz, port: 50141 }, initialDelaySeconds: 5 }
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits:   { cpu: 1000m, memory: 512Mi }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }

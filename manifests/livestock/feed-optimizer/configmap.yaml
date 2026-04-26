@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: feed-optimizer
+  namespace: farmpulse
+  labels: { app.kubernetes.io/name: feed-optimizer, farmpulse.io/domain: livestock }
+data:
+  LOG_LEVEL: info
+  PORT: "50142"

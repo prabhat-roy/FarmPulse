@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: disease-alert
+  namespace: farmpulse
+  labels: { app.kubernetes.io/name: disease-alert, farmpulse.io/domain: pest-disease }
+spec:
+  type: ClusterIP
+  ports: [{ name: http, port: 50101, targetPort: 50101 }]
+  selector: { app.kubernetes.io/name: disease-alert }

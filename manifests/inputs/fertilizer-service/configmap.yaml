@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fertilizer-service
+  namespace: farmpulse
+  labels: { app.kubernetes.io/name: fertilizer-service, farmpulse.io/domain: inputs }
+data:
+  LOG_LEVEL: info
+  PORT: "50181"

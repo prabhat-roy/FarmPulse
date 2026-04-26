@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: herd-tracker
+  namespace: farmpulse
+  labels: { app.kubernetes.io/name: herd-tracker, farmpulse.io/domain: livestock }
+spec:
+  type: ClusterIP
+  ports: [{ name: http, port: 50140, targetPort: 50140 }]
+  selector: { app.kubernetes.io/name: herd-tracker }

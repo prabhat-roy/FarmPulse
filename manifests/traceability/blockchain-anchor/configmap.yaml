@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: blockchain-anchor
+  namespace: farmpulse
+  labels: { app.kubernetes.io/name: blockchain-anchor, farmpulse.io/domain: traceability }
+data:
+  LOG_LEVEL: info
+  PORT: "50222"

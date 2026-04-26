@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: herd-tracker
+  namespace: farmpulse
+  labels:
+    app.kubernetes.io/name: herd-tracker
+    app.kubernetes.io/part-of: farmpulse
+    farmpulse.io/domain: livestock
+spec:
+  replicas: 2
+  selector: { matchLabels: { app.kubernetes.io/name: herd-tracker } }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: herd-tracker, farmpulse.io/domain: livestock }
+    spec:
+      serviceAccountName: herd-tracker
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, fsGroup: 1000 }
+      containers:
+        - name: herd-tracker
+          image: harbor.farmpulse.internal/farmpulse/herd-tracker:latest
+          ports: [{ containerPort: 50140, name: http }]
+          envFrom: [{ configMapRef: { name: herd-tracker } }]
+          livenessProbe:  { httpGet: { path: /healthz, port: 50140 }, initialDelaySeconds: 15 }
+          readinessProbe: { httpGet: { path: /healthz, port: 50140 }, initialDelaySeconds: 5 }
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits:   { cpu: 1000m, memory: 512Mi }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }

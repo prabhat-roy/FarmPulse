@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ndvi-service
+  namespace: farmpulse
+  labels:
+    app.kubernetes.io/name: ndvi-service
+    app.kubernetes.io/part-of: farmpulse
+    farmpulse.io/domain: drones
+spec:
+  replicas: 2
+  selector: { matchLabels: { app.kubernetes.io/name: ndvi-service } }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: ndvi-service, farmpulse.io/domain: drones }
+    spec:
+      serviceAccountName: ndvi-service
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, fsGroup: 1000 }
+      containers:
+        - name: ndvi-service
+          image: harbor.farmpulse.internal/farmpulse/ndvi-service:latest
+          ports: [{ containerPort: 50121, name: http }]
+          envFrom: [{ configMapRef: { name: ndvi-service } }]
+          livenessProbe:  { httpGet: { path: /healthz, port: 50121 }, initialDelaySeconds: 15 }
+          readinessProbe: { httpGet: { path: /healthz, port: 50121 }, initialDelaySeconds: 5 }
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits:   { cpu: 1000m, memory: 512Mi }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }

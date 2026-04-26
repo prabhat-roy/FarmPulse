@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cooperative-service
+  namespace: farmpulse
+  labels: { app.kubernetes.io/name: cooperative-service, farmpulse.io/domain: identity }
+data:
+  LOG_LEVEL: info
+  PORT: "50021"

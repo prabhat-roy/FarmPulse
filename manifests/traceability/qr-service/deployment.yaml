@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qr-service
+  namespace: farmpulse
+  labels:
+    app.kubernetes.io/name: qr-service
+    app.kubernetes.io/part-of: farmpulse
+    farmpulse.io/domain: traceability
+spec:
+  replicas: 2
+  selector: { matchLabels: { app.kubernetes.io/name: qr-service } }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: qr-service, farmpulse.io/domain: traceability }
+    spec:
+      serviceAccountName: qr-service
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, fsGroup: 1000 }
+      containers:
+        - name: qr-service
+          image: harbor.farmpulse.internal/farmpulse/qr-service:latest
+          ports: [{ containerPort: 50221, name: http }]
+          envFrom: [{ configMapRef: { name: qr-service } }]
+          livenessProbe:  { httpGet: { path: /healthz, port: 50221 }, initialDelaySeconds: 15 }
+          readinessProbe: { httpGet: { path: /healthz, port: 50221 }, initialDelaySeconds: 5 }
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits:   { cpu: 1000m, memory: 512Mi }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }

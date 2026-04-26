@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: insurance-service
+  namespace: farmpulse
+  labels: { app.kubernetes.io/name: insurance-service, farmpulse.io/domain: finance }
+data:
+  LOG_LEVEL: info
+  PORT: "50261"
