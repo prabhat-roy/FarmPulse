@@ -1,0 +1,12 @@
+name: farmpulse
+version: 1.0.0
+profile: farmpulse
+model-paths: [models]
+target-path: target
+clean-targets: [target, dbt_packages]
+
+models:
+  farmpulse:
+    staging:    { +materialized: view }
+    grid:       { +materialized: incremental }
+    analytics:  { +materialized: table }
