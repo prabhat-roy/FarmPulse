@@ -1,0 +1,5 @@
+image: { repository: kartoza/geoserver, tag: 2.26.0 }
+postgresql: { enabled: true, postgis: true }
+ingress:
+  enabled: true
+  hosts: [{ host: geoserver.farmpulse.internal }]

@@ -1,0 +1,11 @@
+# STAC — SpatioTemporal Asset Catalog (satellite imagery)
+stac:
+  api: { image: stacutils/stac-fastapi, tag: 3.0.0 }
+  database: pgstac
+  collections:
+    - { id: sentinel-2-l2a,        title: "Sentinel-2 L2A" }
+    - { id: landsat-c2-l2,         title: "Landsat Collection 2 L2" }
+    - { id: planetary-computer-ndvi, title: "NDVI from Planetary Computer" }
+ingress:
+  enabled: true
+  hosts: [{ host: stac.farmpulse.internal }]
