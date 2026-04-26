@@ -1,0 +1,17 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata: { name: farmpulse, namespace: farmpulse }
+spec:
+  entryPoints: [websecure]
+  routes:
+    - match: Host(`api.farmpulse.com`)
+      kind: Rule
+      services: [{ name: api-gateway, port: 50000 }]
+      middlewares: [{ name: farmpulse-rate-limit }]
+  tls: { secretName: farmpulse-tls }
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata: { name: farmpulse-rate-limit, namespace: farmpulse }
+spec:
+  rateLimit: { average: 100, burst: 200 }

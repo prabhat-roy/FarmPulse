@@ -1,0 +1,9 @@
+apiVersion: networking.istio.io/v1
+kind: Gateway
+metadata: { name: farmpulse, namespace: istio-system }
+spec:
+  selector: { istio: ingressgateway }
+  servers:
+    - port: { number: 443, name: https, protocol: HTTPS }
+      tls: { mode: SIMPLE, credentialName: farmpulse-tls }
+      hosts: ["api.farmpulse.com","ops.farmpulse.com"]

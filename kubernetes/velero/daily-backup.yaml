@@ -1,0 +1,9 @@
+apiVersion: velero.io/v1
+kind: Schedule
+metadata: { name: farmpulse-daily, namespace: velero }
+spec:
+  schedule: "0 2 * * *"
+  template:
+    includedNamespaces: [farmpulse, farmpulse-grid-ops, farmpulse-ami, farmpulse-trading, farmpulse-derms]
+    snapshotVolumes: true
+    ttl: 720h0m0s
