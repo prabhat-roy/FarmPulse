@@ -1,0 +1,10 @@
+clusterName: farmpulse.teleport.internal
+authentication:
+  type: github
+  githubConnector:
+    name: github
+    redirectUrl: https://teleport.farmpulse.internal/v1/webapi/github/callback
+kubeClusterName: farmpulse-prod
+ingress:
+  enabled: true
+  hostname: teleport.farmpulse.internal

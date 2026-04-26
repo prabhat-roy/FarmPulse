@@ -1,0 +1,7 @@
+creation_rules:
+  - path_regex: secrets/farmpulse/.*\.yaml
+    kms: arn:aws:kms:us-east-1:111111111111:alias/farmpulse-sops
+  - path_regex: secrets/farmpulse/gcp/.*\.yaml
+    gcp_kms: projects/farmpulse-prod/locations/global/keyRings/farmpulse/cryptoKeys/sops
+  - path_regex: secrets/farmpulse/azure/.*\.yaml
+    azure_keyvault: https://farmpulse-kv.vault.azure.net/keys/sops/abc123
