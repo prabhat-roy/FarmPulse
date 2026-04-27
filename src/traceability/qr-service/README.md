@@ -1,8 +1,8 @@
-# qr-service
+﻿# qr-service
 
-Service in the **traceability** domain of FarmPulse.
+Service in the traceability domain of FarmPulse.
 
-**Language:** Go · **Port:** 50221
+Language: Go Â· Port: 50221
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/qr-service/](../../../helm/charts/qr-service/) — Helm chart
-- [manifests/traceability/qr-service/](../../../manifests/traceability/qr-service/) — Raw K8s manifests
+- [helm/charts/qr-service/](../../../helm/charts/qr-service/) â€” Helm chart
+- [manifests/traceability/qr-service/](../../../manifests/traceability/qr-service/) â€” Raw K8s manifests

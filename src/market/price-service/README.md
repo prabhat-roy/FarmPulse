@@ -1,8 +1,8 @@
-# price-service
+﻿# price-service
 
-Service in the **market** domain of FarmPulse.
+Service in the market domain of FarmPulse.
 
-**Language:** Go · **Port:** 50240
+Language: Go Â· Port: 50240
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/price-service/](../../../helm/charts/price-service/) — Helm chart
-- [manifests/market/price-service/](../../../manifests/market/price-service/) — Raw K8s manifests
+- [helm/charts/price-service/](../../../helm/charts/price-service/) â€” Helm chart
+- [manifests/market/price-service/](../../../manifests/market/price-service/) â€” Raw K8s manifests

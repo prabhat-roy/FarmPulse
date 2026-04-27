@@ -1,8 +1,8 @@
-# fertilizer-service
+﻿# fertilizer-service
 
-Service in the **inputs** domain of FarmPulse.
+Service in the inputs domain of FarmPulse.
 
-**Language:** Go · **Port:** 50181
+Language: Go Â· Port: 50181
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/fertilizer-service/](../../../helm/charts/fertilizer-service/) — Helm chart
-- [manifests/inputs/fertilizer-service/](../../../manifests/inputs/fertilizer-service/) — Raw K8s manifests
+- [helm/charts/fertilizer-service/](../../../helm/charts/fertilizer-service/) â€” Helm chart
+- [manifests/inputs/fertilizer-service/](../../../manifests/inputs/fertilizer-service/) â€” Raw K8s manifests

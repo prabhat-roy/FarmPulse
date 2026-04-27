@@ -1,8 +1,8 @@
-# storage-service
+﻿# storage-service
 
-Service in the **harvest** domain of FarmPulse.
+Service in the harvest domain of FarmPulse.
 
-**Language:** Go · **Port:** 50200
+Language: Go Â· Port: 50200
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/storage-service/](../../../helm/charts/storage-service/) — Helm chart
-- [manifests/harvest/storage-service/](../../../manifests/harvest/storage-service/) — Raw K8s manifests
+- [helm/charts/storage-service/](../../../helm/charts/storage-service/) â€” Helm chart
+- [manifests/harvest/storage-service/](../../../manifests/harvest/storage-service/) â€” Raw K8s manifests

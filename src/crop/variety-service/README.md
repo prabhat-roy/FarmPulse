@@ -1,5 +1,5 @@
-# variety-service
+﻿# variety-service
 
 Crop variety registry.
 
-- **Domain**: crop · **Language**: Java/Spring · **Port**: 50061
+- Domain: crop Â· Language: Java/Spring Â· Port: 50061

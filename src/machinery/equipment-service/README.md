@@ -1,8 +1,8 @@
-# equipment-service
+﻿# equipment-service
 
-Service in the **machinery** domain of FarmPulse.
+Service in the machinery domain of FarmPulse.
 
-**Language:** Go · **Port:** 50160
+Language: Go Â· Port: 50160
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/equipment-service/](../../../helm/charts/equipment-service/) — Helm chart
-- [manifests/machinery/equipment-service/](../../../manifests/machinery/equipment-service/) — Raw K8s manifests
+- [helm/charts/equipment-service/](../../../helm/charts/equipment-service/) â€” Helm chart
+- [manifests/machinery/equipment-service/](../../../manifests/machinery/equipment-service/) â€” Raw K8s manifests

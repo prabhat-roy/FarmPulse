@@ -1,5 +1,5 @@
-# fertility-service
+﻿# fertility-service
 
 Soil fertility scoring (NPK, OM, pH).
 
-- **Domain**: soil-environment · **Language**: Python · **Port**: 50044
+- Domain: soil-environment Â· Language: Python Â· Port: 50044

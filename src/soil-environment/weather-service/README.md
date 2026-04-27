@@ -1,5 +1,5 @@
-# weather-service
+﻿# weather-service
 
 Weather forecast ingest + station data.
 
-- **Domain**: soil-environment · **Language**: Python · **Port**: 50042
+- Domain: soil-environment Â· Language: Python Â· Port: 50042

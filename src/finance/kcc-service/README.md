@@ -1,8 +1,8 @@
-# kcc-service
+﻿# kcc-service
 
-Service in the **finance** domain of FarmPulse.
+Service in the finance domain of FarmPulse.
 
-**Language:** Go · **Port:** 50263
+Language: Go Â· Port: 50263
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/kcc-service/](../../../helm/charts/kcc-service/) — Helm chart
-- [manifests/finance/kcc-service/](../../../manifests/finance/kcc-service/) — Raw K8s manifests
+- [helm/charts/kcc-service/](../../../helm/charts/kcc-service/) â€” Helm chart
+- [manifests/finance/kcc-service/](../../../manifests/finance/kcc-service/) â€” Raw K8s manifests

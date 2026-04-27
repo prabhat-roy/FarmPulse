@@ -1,8 +1,8 @@
-# feed-optimizer
+﻿# feed-optimizer
 
-Service in the **livestock** domain of FarmPulse.
+Service in the livestock domain of FarmPulse.
 
-**Language:** Go · **Port:** 50142
+Language: Go Â· Port: 50142
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/feed-optimizer/](../../../helm/charts/feed-optimizer/) — Helm chart
-- [manifests/livestock/feed-optimizer/](../../../manifests/livestock/feed-optimizer/) — Raw K8s manifests
+- [helm/charts/feed-optimizer/](../../../helm/charts/feed-optimizer/) â€” Helm chart
+- [manifests/livestock/feed-optimizer/](../../../manifests/livestock/feed-optimizer/) â€” Raw K8s manifests

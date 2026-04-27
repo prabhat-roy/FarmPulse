@@ -1,8 +1,8 @@
-# breeding-service
+﻿# breeding-service
 
-Service in the **livestock** domain of FarmPulse.
+Service in the livestock domain of FarmPulse.
 
-**Language:** Go · **Port:** 50141
+Language: Go Â· Port: 50141
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/breeding-service/](../../../helm/charts/breeding-service/) — Helm chart
-- [manifests/livestock/breeding-service/](../../../manifests/livestock/breeding-service/) — Raw K8s manifests
+- [helm/charts/breeding-service/](../../../helm/charts/breeding-service/) â€” Helm chart
+- [manifests/livestock/breeding-service/](../../../manifests/livestock/breeding-service/) â€” Raw K8s manifests

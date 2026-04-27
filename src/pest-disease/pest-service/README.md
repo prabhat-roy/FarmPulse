@@ -1,8 +1,8 @@
-# pest-service
+﻿# pest-service
 
-Service in the **pest-disease** domain of FarmPulse.
+Service in the pest-disease domain of FarmPulse.
 
-**Language:** Go · **Port:** 50100
+Language: Go Â· Port: 50100
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/pest-service/](../../../helm/charts/pest-service/) — Helm chart
-- [manifests/pest-disease/pest-service/](../../../manifests/pest-disease/pest-service/) — Raw K8s manifests
+- [helm/charts/pest-service/](../../../helm/charts/pest-service/) â€” Helm chart
+- [manifests/pest-disease/pest-service/](../../../manifests/pest-disease/pest-service/) â€” Raw K8s manifests

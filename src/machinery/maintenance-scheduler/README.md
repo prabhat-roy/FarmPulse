@@ -1,8 +1,8 @@
-# maintenance-scheduler
+﻿# maintenance-scheduler
 
-Service in the **machinery** domain of FarmPulse.
+Service in the machinery domain of FarmPulse.
 
-**Language:** Go · **Port:** 50162
+Language: Go Â· Port: 50162
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/maintenance-scheduler/](../../../helm/charts/maintenance-scheduler/) — Helm chart
-- [manifests/machinery/maintenance-scheduler/](../../../manifests/machinery/maintenance-scheduler/) — Raw K8s manifests
+- [helm/charts/maintenance-scheduler/](../../../helm/charts/maintenance-scheduler/) â€” Helm chart
+- [manifests/machinery/maintenance-scheduler/](../../../manifests/machinery/maintenance-scheduler/) â€” Raw K8s manifests

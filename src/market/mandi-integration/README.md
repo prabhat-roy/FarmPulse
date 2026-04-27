@@ -1,8 +1,8 @@
-# mandi-integration
+﻿# mandi-integration
 
-Service in the **market** domain of FarmPulse.
+Service in the market domain of FarmPulse.
 
-**Language:** Go · **Port:** 50242
+Language: Go Â· Port: 50242
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/mandi-integration/](../../../helm/charts/mandi-integration/) — Helm chart
-- [manifests/market/mandi-integration/](../../../manifests/market/mandi-integration/) — Raw K8s manifests
+- [helm/charts/mandi-integration/](../../../helm/charts/mandi-integration/) â€” Helm chart
+- [manifests/market/mandi-integration/](../../../manifests/market/mandi-integration/) â€” Raw K8s manifests

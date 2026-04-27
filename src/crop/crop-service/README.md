@@ -1,5 +1,5 @@
-# crop-service
+﻿# crop-service
 
 Crop master + agronomic profiles.
 
-- **Domain**: crop · **Language**: Java/Spring · **Port**: 50060
+- Domain: crop Â· Language: Java/Spring Â· Port: 50060

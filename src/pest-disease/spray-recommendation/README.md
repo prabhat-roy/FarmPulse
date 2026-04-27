@@ -1,8 +1,8 @@
-# spray-recommendation
+﻿# spray-recommendation
 
-Service in the **pest-disease** domain of FarmPulse.
+Service in the pest-disease domain of FarmPulse.
 
-**Language:** Go · **Port:** 50102
+Language: Go Â· Port: 50102
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/spray-recommendation/](../../../helm/charts/spray-recommendation/) — Helm chart
-- [manifests/pest-disease/spray-recommendation/](../../../manifests/pest-disease/spray-recommendation/) — Raw K8s manifests
+- [helm/charts/spray-recommendation/](../../../helm/charts/spray-recommendation/) â€” Helm chart
+- [manifests/pest-disease/spray-recommendation/](../../../manifests/pest-disease/spray-recommendation/) â€” Raw K8s manifests

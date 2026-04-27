@@ -1,8 +1,8 @@
-# ndvi-service
+﻿# ndvi-service
 
-Service in the **drones** domain of FarmPulse.
+Service in the drones domain of FarmPulse.
 
-**Language:** Go · **Port:** 50121
+Language: Go Â· Port: 50121
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/ndvi-service/](../../../helm/charts/ndvi-service/) — Helm chart
-- [manifests/drones/ndvi-service/](../../../manifests/drones/ndvi-service/) — Raw K8s manifests
+- [helm/charts/ndvi-service/](../../../helm/charts/ndvi-service/) â€” Helm chart
+- [manifests/drones/ndvi-service/](../../../manifests/drones/ndvi-service/) â€” Raw K8s manifests

@@ -1,8 +1,8 @@
-# seed-service
+﻿# seed-service
 
-Service in the **inputs** domain of FarmPulse.
+Service in the inputs domain of FarmPulse.
 
-**Language:** Go · **Port:** 50180
+Language: Go Â· Port: 50180
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/seed-service/](../../../helm/charts/seed-service/) — Helm chart
-- [manifests/inputs/seed-service/](../../../manifests/inputs/seed-service/) — Raw K8s manifests
+- [helm/charts/seed-service/](../../../helm/charts/seed-service/) â€” Helm chart
+- [manifests/inputs/seed-service/](../../../manifests/inputs/seed-service/) â€” Raw K8s manifests

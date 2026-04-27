@@ -1,5 +1,5 @@
-# soil-service
+﻿# soil-service
 
 Soil profile + lab test records.
 
-- **Domain**: soil-environment · **Language**: Java/Spring · **Port**: 50040
+- Domain: soil-environment Â· Language: Java/Spring Â· Port: 50040

@@ -1,5 +1,5 @@
-# growth-stage-service
+﻿# growth-stage-service
 
 Phenology / growth-stage tracker.
 
-- **Domain**: crop · **Language**: Python · **Port**: 50062
+- Domain: crop Â· Language: Python Â· Port: 50062

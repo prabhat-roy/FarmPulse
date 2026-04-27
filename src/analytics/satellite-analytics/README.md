@@ -1,8 +1,8 @@
-# satellite-analytics
+﻿# satellite-analytics
 
-Service in the **analytics** domain of FarmPulse.
+Service in the analytics domain of FarmPulse.
 
-**Language:** Go · **Port:** 50282
+Language: Go Â· Port: 50282
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/satellite-analytics/](../../../helm/charts/satellite-analytics/) — Helm chart
-- [manifests/analytics/satellite-analytics/](../../../manifests/analytics/satellite-analytics/) — Raw K8s manifests
+- [helm/charts/satellite-analytics/](../../../helm/charts/satellite-analytics/) â€” Helm chart
+- [manifests/analytics/satellite-analytics/](../../../manifests/analytics/satellite-analytics/) â€” Raw K8s manifests

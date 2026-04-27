@@ -1,5 +1,5 @@
-# agronomy-bff
+﻿# agronomy-bff
 
 BFF for agronomy/manager dashboard (React).
 
-- **Domain**: platform · **Language**: Go · **Port**: 50002
+- Domain: platform Â· Language: Go Â· Port: 50002

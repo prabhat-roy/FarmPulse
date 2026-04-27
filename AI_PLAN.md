@@ -1,4 +1,4 @@
-# AI_PLAN.md — FarmPulse (AgriTech & Precision Farming Platform)
+﻿# AI_PLAN.md â€” FarmPulse (AgriTech & Precision Farming Platform)
 
 > Hierarchical AI/ML strategy. Reuses the Paperclip / OpenClaw / NemoClaw
 > agent platform first defined in [ShopOS/AI.md](../ShopOS/AI.md). This file
@@ -13,13 +13,13 @@ multispectral scans, livestock-collar telemetry, and farmer voice queries
 into one platform. AI is non-optional because:
 
 - A 24-hour delay on disease detection in a field can cost an entire
-  harvest — only on-edge CV scales to thousands of farms.
-- Smallholder farmers ask in 25+ languages, voice-first, low literacy —
+  harvest â€” only on-edge CV scales to thousands of farms.
+- Smallholder farmers ask in 25+ languages, voice-first, low literacy â€”
   text-only chatbots do not work.
 - Yield + market-price forecasting only beats heuristics when fused across
   satellite, weather, and futures data.
 
-All AI must be **offline-tolerant** (rural connectivity is bursty), small
+All AI must be offline-tolerant (rural connectivity is bursty), small
 enough for on-edge inference, and explainable to extension officers.
 
 ---
@@ -45,15 +45,15 @@ enough for on-edge inference, and explainable to extension officers.
 
 ## 3. Hierarchical Agent Architecture
 
-Reuses **OpenClaw** / **Paperclip** / **NemoClaw** from `ShopOS/AI.md`.
+Reuses OpenClaw / Paperclip / NemoClaw from `ShopOS/AI.md`.
 
-### Tier 0 — Master Architect Agent
+### Tier 0 â€” Master Architect Agent
 
 `farm-architect` (OpenClaw + Llama 3.1 70B). Researches new AI tooling,
 proposes new services, on-boards Tier-1 leads, weekly written report.
 Read-only on prod.
 
-### Tier 1 — Division Leads (5)
+### Tier 1 â€” Division Leads (5)
 
 | Agent | Scope |
 |-------|-------|
@@ -63,30 +63,30 @@ Read-only on prod.
 | `farm-dataml-lead`     | Feature store, training pipelines, drift |
 | `farm-platform-lead`   | Cross-cutting (idempotency, saga, outbox), edge runtime |
 
-### Tier 2 — Specialist Agents
+### Tier 2 â€” Specialist Agents
 
-**By language**: Go, Java, Kotlin, Python, Node, Rust, TypeScript, Dart
+By language: Go, Java, Kotlin, Python, Node, Rust, TypeScript, Dart
 (mobile).
 
-**By tool**: PostgreSQL/PostGIS, MongoDB, Redis, TimescaleDB, MinIO,
+By tool: PostgreSQL/PostGIS, MongoDB, Redis, TimescaleDB, MinIO,
 ClickHouse, Kafka, NATS, MQTT (LoRaWAN gateway), ChirpStack, Vault,
 Keycloak, OPA, Kyverno, Falco, Cilium, Istio, ArgoCD, Argo Workflows,
 Prometheus, Grafana, Loki, Jaeger, OpenTelemetry, Trivy, Cosign,
 GeoServer, MapLibre, OpenDroneMap, ODK Central, OpenFGA, Wazuh,
 Camunda, Druid, Pulsar.
 
-**By service** — one agent per microservice (~165). Owns README, OpenAPI,
+By service â€” one agent per microservice (~165). Owns README, OpenAPI,
 test coverage, CHANGELOG, deps, /healthz wiring.
 
-### Tier 3 — Ephemeral Workers
+### Tier 3 â€” Ephemeral Workers
 
 Spawned for retraining a disease detector on newly labelled images,
 generating runbooks, or building model bundles for offline mobile use.
 
 ### Lifecycle
 
-Research → Document → Implement → Test → Review → Deploy → Monitor →
-Respond → Upgrade → Report. Weekly markdown report in `ai/reports/`.
+Research â†’ Document â†’ Implement â†’ Test â†’ Review â†’ Deploy â†’ Monitor â†’
+Respond â†’ Upgrade â†’ Report. Weekly markdown report in `ai/reports/`.
 
 ---
 
@@ -94,25 +94,25 @@ Respond → Upgrade → Report. Weekly markdown report in `ai/reports/`.
 
 ```
 ai-platform/
-├── cluster: farm-ai-{aws,gcp,azure}      ← cloud GPU pool
-├── edge: farmer-mobile-app               ← TFLite / Core ML / ONNX models bundled in app
-├── edge: village-gateway                 ← Jetson Nano-class for drone/cam
-├── namespace: farm-ai-control             ← Paperclip
-├── namespace: farm-ai-agents              ← OpenClaw runtime
-├── namespace: farm-ai-sandbox             ← NemoClaw
-├── namespace: farm-ai-models              ← vLLM, Ollama, LiteLLM, Triton
-├── namespace: farm-ai-data                ← Qdrant, Weaviate, MinIO, MLflow
-├── namespace: farm-ai-obs                 ← Langfuse, Phoenix
-└── namespace: farm-ai-pipelines           ← Argo Workflows
+â”œâ”€â”€ cluster: farm-ai-{aws,gcp,azure}      â† cloud GPU pool
+â”œâ”€â”€ edge: farmer-mobile-app               â† TFLite / Core ML / ONNX models bundled in app
+â”œâ”€â”€ edge: village-gateway                 â† Jetson Nano-class for drone/cam
+â”œâ”€â”€ namespace: farm-ai-control             â† Paperclip
+â”œâ”€â”€ namespace: farm-ai-agents              â† OpenClaw runtime
+â”œâ”€â”€ namespace: farm-ai-sandbox             â† NemoClaw
+â”œâ”€â”€ namespace: farm-ai-models              â† vLLM, Ollama, LiteLLM, Triton
+â”œâ”€â”€ namespace: farm-ai-data                â† Qdrant, Weaviate, MinIO, MLflow
+â”œâ”€â”€ namespace: farm-ai-obs                 â† Langfuse, Phoenix
+â””â”€â”€ namespace: farm-ai-pipelines           â† Argo Workflows
 ```
 
 ### Hardware
 
-- **Cloud**: A100 pool for satellite + multispectral training; A10G/L4 for
+- Cloud: A100 pool for satellite + multispectral training; A10G/L4 for
   LLM inference.
-- **Mobile edge**: TFLite + ONNX Runtime models <50 MB; quantised
+- Mobile edge: TFLite + ONNX Runtime models <50 MB; quantised
   EfficientNetV2 for disease detection.
-- **Village gateway**: Jetson Nano / Orin Nano running Triton with
+- Village gateway: Jetson Nano / Orin Nano running Triton with
   TensorRT-quantised pest-spread + drone-stitching pipelines.
 
 ### Software stack
@@ -123,9 +123,9 @@ ai-platform/
 | Edge inference | TFLite, ONNX Runtime, TensorRT | Mobile + gateway |
 | Local dev | Ollama | Offline |
 | Gateway | LiteLLM | OpenAI-compatible, quota |
-| Orchestrator | **Paperclip** | Task queue, audit |
-| Agent platform | **OpenClaw** | Llama 3.1 70B |
-| Sandbox | **NemoClaw** | NeMo Guardrails |
+| Orchestrator | Paperclip | Task queue, audit |
+| Agent platform | OpenClaw | Llama 3.1 70B |
+| Sandbox | NemoClaw | NeMo Guardrails |
 | Vector | Qdrant | Knowledge-base for advisory |
 | Vector | Weaviate | Multimodal disease image+text |
 | MLOps | MLflow | Model registry |
@@ -138,7 +138,7 @@ ai-platform/
 ### Data isolation
 
 - Country-level data sovereignty (IN, KE, BR farms separate clusters).
-- Smallholder PII never persisted in prompts — voice queries hash farmer-ID.
+- Smallholder PII never persisted in prompts â€” voice queries hash farmer-ID.
 - Satellite imagery: licensed by country; OPA enforces query scope.
 
 ---
@@ -149,9 +149,9 @@ ai-platform/
 |---------|-----------|
 | GDPR / DPDP | PII tokenisation; right-to-erasure in Paperclip |
 | Drone airspace (DGCA / FAA / EASA) | AI flight-plans must pass rule-engine before publish |
-| Pesticide / agronomic advisory | Every AI advisory tagged with confidence + government-recommended fallback; <70% confidence → human extension officer |
+| Pesticide / agronomic advisory | Every AI advisory tagged with confidence + government-recommended fallback; <70% confidence â†’ human extension officer |
 | Insurance fairness | LightGBM credit model audited quarterly for bias by region/caste/gender |
-| Offline-fallback safety | Mobile model decisions display "no internet — local model only" notice |
+| Offline-fallback safety | Mobile model decisions display "no internet â€” local model only" notice |
 
 ---
 
@@ -166,15 +166,15 @@ ai-platform/
 | 5 | Per-service Tier-2 agents; mobile app TFLite bundle |
 | 6 | Voice assistant prod (Hindi + 4 Indic) |
 | 7 | Satellite NDVI + yield prediction prod |
-| 8 | Multi-region (IN→KE→BR) rollout, multi-cloud failover drill |
+| 8 | Multi-region (INâ†’KEâ†’BR) rollout, multi-cloud failover drill |
 
 ---
 
 ## 7. Cost Envelope (target)
 
-- **Cloud infra**: $3,200 – $5,400 / month per primary cloud
-- **Edge gateway** (per village): $400 one-time, $20/month ops
-- **No** subscription LLM spend
+- Cloud infra: $3,200 â€“ $5,400 / month per primary cloud
+- Edge gateway (per village): $400 one-time, $20/month ops
+- No subscription LLM spend
 
 ---
 

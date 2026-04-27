@@ -1,5 +1,5 @@
-# phenology-service
+﻿# phenology-service
 
 Phenology calendar + thermal time / GDD.
 
-- **Domain**: crop · **Language**: Python · **Port**: 50064
+- Domain: crop Â· Language: Python Â· Port: 50064

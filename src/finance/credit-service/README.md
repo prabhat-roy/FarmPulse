@@ -1,8 +1,8 @@
-# credit-service
+﻿# credit-service
 
-Service in the **finance** domain of FarmPulse.
+Service in the finance domain of FarmPulse.
 
-**Language:** Go · **Port:** 50260
+Language: Go Â· Port: 50260
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/credit-service/](../../../helm/charts/credit-service/) — Helm chart
-- [manifests/finance/credit-service/](../../../manifests/finance/credit-service/) — Raw K8s manifests
+- [helm/charts/credit-service/](../../../helm/charts/credit-service/) â€” Helm chart
+- [manifests/finance/credit-service/](../../../manifests/finance/credit-service/) â€” Raw K8s manifests

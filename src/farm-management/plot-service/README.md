@@ -1,5 +1,5 @@
-# plot-service
+﻿# plot-service
 
 Plot subdivisions within fields.
 
-- **Domain**: farm-management · **Language**: Java/Spring · **Port**: 50022
+- Domain: farm-management Â· Language: Java/Spring Â· Port: 50022
