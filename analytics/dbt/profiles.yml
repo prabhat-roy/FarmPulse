@@ -1,0 +1,19 @@
+﻿farmpulse:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgres.farmpulse.svc
+      user: dbt
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      port: 5432
+      dbname: farmpulse_warehouse
+      schema: public
+      threads: 8
+    prod:
+      type: trino
+      host: trino.farmpulse.svc
+      port: 8080
+      catalog: iceberg
+      schema: farmpulse_mart
+      threads: 16

@@ -1,0 +1,10 @@
+﻿apiVersion: flink.apache.org/v1beta1
+kind: FlinkSessionJob
+metadata: { name: farmpulse-aggregation, namespace: farmpulse }
+spec:
+  deploymentName: farmpulse-flink
+  job:
+    jarURI: s3://farmpulse-flink-jobs/aggregation.jar
+    parallelism: 8
+    upgradeMode: savepoint
+    args: ["--source-topic", "farmpulse.events.enriched", "--sink-topic", "farmpulse.metrics.aggregated", "--window", "5m"]

@@ -1,0 +1,6 @@
+﻿plugins:
+  - { id: tech-radar, config: { url: https://github.com/prabhat-roy/FarmPulse/raw/main/backstage/tech-radar.json } }
+  - { id: lighthouse, config: { baseUrl: https://lhci.farmpulse.internal } }
+  - { id: opencost,   config: { baseUrl: https://opencost.farmpulse.internal } }
+  - { id: argocd,     config: { url: https://argocd.farmpulse.internal, token: "${ARGOCD_TOKEN}" } }
+  - { id: kubernetes, config: { clusters: [{ name: farmpulse-aws, url: https://eks.farmpulse.aws.internal }, { name: farmpulse-gcp, url: https://gke.farmpulse.gcp.internal }, { name: farmpulse-azure, url: https://aks.farmpulse.azure.internal }] } }
